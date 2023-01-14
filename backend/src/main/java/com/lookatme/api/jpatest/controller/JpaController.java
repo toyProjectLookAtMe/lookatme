@@ -31,13 +31,14 @@ public class JpaController {
     }
 
     @GetMapping("/jpaInsert")
-    public String jpaInsert(){
-        //logger.info("입력");
-        JpaEntity jpaEntity = new JpaEntity();
-        jpaEntity.setJpaText("입력함");
+    public Integer jpaInsert(){
+        // 데이터를 입력하고
+        JpaEntity jpaEntity = JpaEntity.builder().jpaText("랜덤 숫자 : " + ((Math.random()*10000)+1)).jpaAge((int) ((Math.random()*10)+1)).build();
+        // 리턴으로 해당 입력한 idx 리턴
+
         jpaRepository.save(jpaEntity);
 
-        return "내용 : " + jpaEntity.getJpaText();
+        return jpaEntity.getJpaNumber();
     }
 
     @GetMapping("/jpaUpdate")
