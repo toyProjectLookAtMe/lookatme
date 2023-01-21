@@ -3,7 +3,7 @@ import {Container,Row,Col,Button,ListGroup} from 'react-bootstrap'
 import  Card from '../../../components/Card'
 import { Link } from 'react-router-dom'
 // img
-import darklogo from '../../../assets/images/logo-dark.png'
+import darklogo from '../../../assets/images/logo.png'
 
 const Invoiceview =()=>{
     return(
