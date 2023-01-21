@@ -20,7 +20,7 @@ public class JpaController {
 
     @GetMapping("/jpaSearchAll")
     public String jpaSearchAll(){
-        logger.info("전체검색");
+        logger.info("다 검색");
         return jpaRepository.findAll().toString();
     }
 
