@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface JpaTestRepositroy extends JpaRepository<JpaEntity, Object> {
 
     @Query(value = "SELECT jpa_number FROM jpa_test ORDER BY jpa_number DESC LIMIT 1", nativeQuery = true)
-    public Integer findByJpaNumber();
+    Integer findByJpaNumber();
+
 }
