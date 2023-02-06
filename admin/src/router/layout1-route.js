@@ -7,6 +7,7 @@ import Rating from '../views/backend/main/rating';
 import Comment from '../views/backend/main/comment';
 import User from '../views/backend/main/user';
 import Pricing from '../views/backend/main/pricing';
+import ApiTest from "../views/backend/main/apiTest";
 
 //App
 import UserProfile from '../views/backend/app/usermanagement/userprofile'
@@ -100,6 +101,7 @@ const Layout1Route = () => {
                     <Route path="/comment" exact component={Comment} />
                     <Route path="/user" exact component={User} />
                     <Route path="/pages-pricing" exact component={Pricing} />
+                    <Route path="/apiTest" exact component={ApiTest} />
 
                     {/* App */}
                     <Route path="/user-profile"         component={UserProfile} />
