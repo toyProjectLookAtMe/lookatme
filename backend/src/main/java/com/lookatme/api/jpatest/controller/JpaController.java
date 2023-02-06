@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api")
 public class JpaController {
@@ -19,9 +24,11 @@ public class JpaController {
     private JpaTestRepositroy jpaRepository;
 
     @GetMapping("/jpaSearchAll")
-    public String jpaSearchAll(){
+    public List<JpaEntity> jpaSearchAll(){
         logger.info("전체검색");
-        return jpaRepository.findAll().toString();
+        List<JpaEntity> stringObjectMap = new ArrayList<JpaEntity>();
+        stringObjectMap = jpaRepository.findAll();
+        return stringObjectMap;
     }
 
     @GetMapping("/jpaSearchOne")
@@ -31,13 +38,13 @@ public class JpaController {
     }
 
     @GetMapping("/jpaInsert")
-    public String jpaInsert(){
-        //logger.info("입력");
-        JpaEntity jpaEntity = new JpaEntity();
-        jpaEntity.setJpaText("입력함");
+    public Integer jpaInsert(){
+        // 데이터를 입력하고
+        JpaEntity jpaEntity = JpaEntity.builder().jpaText("랜덤 숫자 : " + ((Math.random()*10000)+1)).jpaAge((int) ((Math.random()*10)+1)).build();
+        // 리턴으로 해당 입력한 idx 리턴
         jpaRepository.save(jpaEntity);
 
-        return "내용 : " + jpaEntity.getJpaText();
+        return jpaEntity.getJpaNumber();
     }
 
     @GetMapping("/jpaUpdate")

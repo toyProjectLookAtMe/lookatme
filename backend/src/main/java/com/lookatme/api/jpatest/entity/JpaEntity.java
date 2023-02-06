@@ -24,6 +24,9 @@ public class JpaEntity {
     @Column(name="jpa_text")
     String jpaText;
 
+    @Column(name="jpa_age")
+    int jpaAge;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="jpa_date")
