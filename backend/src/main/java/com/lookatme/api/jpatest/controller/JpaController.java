@@ -25,7 +25,7 @@ public class JpaController {
 
     @GetMapping("/jpaSearchAll")
     public List<JpaEntity> jpaSearchAll(){
-        logger.info("전체검색");
+        logger.info("전체검색!!");
         List<JpaEntity> stringObjectMap = new ArrayList<JpaEntity>();
         stringObjectMap = jpaRepository.findAll();
         return stringObjectMap;
