@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -22,8 +25,10 @@ public class JpaController {
 
     @GetMapping("/jpaSearchAll")
     public List<JpaEntity> jpaSearchAll(){
-        logger.info("다 검색");
-        return jpaRepository.findAll();
+        logger.info("전체검색!!");
+        List<JpaEntity> stringObjectMap = new ArrayList<JpaEntity>();
+        stringObjectMap = jpaRepository.findAll();
+        return stringObjectMap;
     }
 
     @GetMapping("/jpaSearchOne")

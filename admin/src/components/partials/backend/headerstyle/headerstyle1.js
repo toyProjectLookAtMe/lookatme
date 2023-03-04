@@ -37,14 +37,14 @@ const  HeaderStyle1 =(props) =>{
                         <Link to="#" className="header-logo">
                             <img src={logo} className="img-fluid rounded-normal" alt=""/>
                             <div className="logo-title">
-                            <span className="text-primary text-uppercase">Streamit</span>
+                            <span className="text-primary text-uppercase">LookAtMe!</span>
                             </div>
                         </Link>
                     </div>
                 </div>
                 <div className="iq-search-bar ml-auto">
                     <Form action="#" className="searchbox">
-                        <input type="text" className="text search-input" placeholder="Search Here..."/>
+                        <input type="text" className="text search-input" placeholder="검색창"/>
                         <Link className="search-link" to="#"><i className="ri-search-line"></i></Link>
                     </Form>
                 </div>
@@ -74,7 +74,7 @@ const  HeaderStyle1 =(props) =>{
                                 <Card className="shadow-none m-0">
                                     <Card.Body className="p-0">
                                         <div className="bg-primary p-3 d-flex justify-content-between">
-                                            <h5 className="mb-0 text-white">All Notifications</h5>
+                                            <h5 className="mb-0 text-white">전체 알림</h5>
                                         <small className="badge  badge-light float-right pt-1">4</small>
                                         </div>
                                         <Link to="#" className="iq-sub-card" >
@@ -140,7 +140,7 @@ const  HeaderStyle1 =(props) =>{
                                 <Card className="shadow-none m-0">
                                     <Card.Body className="p-0">
                                         <div className="bg-primary p-3 d-flex justify-content-between">
-                                            <h5 className="mb-0 text-white">All Messages</h5>
+                                            <h5 className="mb-0 text-white">전체 메세지</h5>
                                         <small className="badge  badge-light float-right pt-1">5</small>
                                         </div>
                                         <Link to="#" className="iq-sub-card">

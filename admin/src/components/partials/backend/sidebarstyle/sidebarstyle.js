@@ -11,18 +11,15 @@ import Scrollbar from 'smooth-scrollbar'
 //img
 import logo from '../../../../../src/assets/images/logo.png'
 
-
 // function mapStateToProps(state) {
 //     return {
 //         darkMode: getDarkMode(state)
 //     };
 // }
 
-
 const minisidbar =() =>{
     document.body.classList.toggle('sidebar-main')
 }
-
 
 const SidebarStyle = (props) => {
     
@@ -69,7 +66,7 @@ const SidebarStyle = (props) => {
                     <Link to="/" className="header-logo">
                     <img src={logo} className="img-fluid rounded-normal" alt=""/>
                     <div className="logo-title">
-                        <span className="text-primary text-uppercase">Streamit</span>
+                        <span className="text-primary">LookAtMe!</span>
                     </div>
                     </Link>
                     <div className="iq-menu-bt-sidebar">
@@ -111,6 +108,12 @@ const SidebarStyle = (props) => {
                             <Link to="/user" className="iq-waves-effect">
                                 <i className="las la-user-friends"></i>
                                 <span>User</span>
+                            </Link>
+                        </li>
+                        <li className={`${location.pathname === '/apiTest' ? 'active' : ''} `}>
+                            <Link to="/apiTest" className="iq-waves-effect">
+                                <i className="las la-user-friends"></i>
+                                <span>apiTest</span>
                             </Link>
                         </li>
                         <li className={activeMenu === '0' ? 'active' : ''}>

@@ -5,7 +5,6 @@ import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -60,6 +59,6 @@ public class Image {
     private CodeInfo codeInfo;
 
     @ManyToOne
-    @JoinColumn(name = "user_index")
-    private User user;
+    @JoinColumn(name = "member_index")
+    private Member member;
 }

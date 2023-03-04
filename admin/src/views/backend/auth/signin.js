@@ -60,7 +60,7 @@ const SignIn = (props) => {
                         <div className="sign-user_card ">                    
                            <div className="sign-in-page-data">
                               <div className="sign-in-from w-100 m-auto">
-                                 <h3 className="mb-3 text-center">Sign in</h3>
+                                 <h3 className="mb-3 text-center">로그인</h3>
                                  <Form className="mt-4" action="">
                                     <Form.Group>                                 
                                        <Form.Control type="email" className="mb-0" id="exampleInputEmail1" placeholder="Enter email" autoComplete="off" required/>
@@ -69,7 +69,7 @@ const SignIn = (props) => {
                                        <Form.Control type="password" className="mb-0" id="exampleInputPassword2" placeholder="Password" required/>
                                     </Form.Group>
                                        <div className="sign-info">
-                                          <Button type="button" onClick={()=> history.push('/')} variant="btn btn-primary">Sign in</Button>
+                                          <Button type="button" onClick={()=> history.push('/')} variant="btn btn-primary">로그인</Button>
                                           <div className="custom-control custom-checkbox d-inline-block">
                                              <input type="checkbox" className="custom-control-input" id="customCheck"/>
                                              <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
