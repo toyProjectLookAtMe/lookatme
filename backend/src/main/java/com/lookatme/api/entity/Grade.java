@@ -25,8 +25,8 @@ public class Grade {
     Double gradeScore;
 
     @ManyToOne
-    @JoinColumn(name = "user_index")
-    private User user;
+    @JoinColumn(name = "member_index")
+    private Member member;
 
     @ManyToOne
     @JoinColumn(name = "contents_index")

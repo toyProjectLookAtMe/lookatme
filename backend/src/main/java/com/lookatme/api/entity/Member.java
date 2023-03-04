@@ -2,12 +2,13 @@ package com.lookatme.api.entity;
 
 
 import com.sun.istack.NotNull;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,56 +16,64 @@ import java.util.Date;
 @Data
 @Table
 @Entity
-public class User {
+@NoArgsConstructor
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     @Comment("회원 PK")
-    Integer userIndex;
+    private Long memberIndex;
 
     @Column(length = 100)
     @NotNull
     @Comment("회원 이메일")
-    String userEmail;
+    private String memberEmail;
 
     @Column // 암호화 예정 default varchar(255)
     @NotNull
     @Comment("회원 비밀번호")
-    String userPassword;
+    private String memberPassword;
 
     @Column(length = 30)
     @NotNull
     @Comment("회원 닉네임")
-    String userNickname;
+    private String memberNickname;
 
     @Column
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @NotNull
     @Comment("회원 회원가입 날짜")
-    Date userJoinDate;
+    private Date memberJoinDate;
 
     @Column
-    @UpdateTimestamp
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Comment("회원 로그인 날짜")
-    Date userLoiginDate;
+    private Date memberLoiginDate;
 
     @Column
     @ColumnDefault("1") // 0 : 탈퇴, 1 : 일반, 2 : 휴면
     @NotNull
     @Comment("회원 상태")
-    Integer userState;
+    private Integer memberState;
 
     @Column
     @ColumnDefault("0") // 0 : 사진 없음, 1 : 사진 있음
     @Comment("회원 프로필사진 유무")
-    Integer userProfileImageState;
+    private Integer memberProfileImageState;
 
-    @Column
-    @Comment("회원 토큰")
-    String userToken;
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
 
+    @Builder
+    public Member(Long memberIndex, String memberEmail, String memberPassword, String memberNickname, Authority authority) {
+        this.memberIndex = memberIndex;
+        this.memberEmail = memberEmail;
+        this.memberPassword = memberPassword;
+        this.memberNickname = memberNickname;
+        this.authority = authority;
+    }
 
 }

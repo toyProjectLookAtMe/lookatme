@@ -63,32 +63,36 @@ const rtlMode = sessionStorage.getItem('rtl-mode');
                             <div className="sign-user_card ">                    
                                 <div className="sign-in-page-data">
                                     <div className="sign-in-from w-100 m-auto">
-                                        <h3 className="mb-3 text-center">Sign in</h3>
+                                        <h3 className="mb-3 text-center">Look At Me!</h3>
                                         <Form className="mt-4">
                                             <Form.Group>                                 
-                                                <Form.Control type="email" className="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email" autoComplete="off" required/>
+                                                <Form.Control type="email" className="form-control mb-0" id="exampleInputEmail1" placeholder="이메일" autoComplete="off" required/>
                                             </Form.Group>
                                             <Form.Group>                                 
-                                                <Form.Control type="password" className="form-control mb-0" id="exampleInputPassword2" placeholder="Password" required/>
+                                                <Form.Control type="password" className="form-control mb-0" id="exampleInputPassword2" placeholder="비밀번호" required/>
                                             </Form.Group>
-                                            <div className="sign-info">
-                                                <Button className="btn btn-hover btn-primary1" onClick={() => history.push("/")}>Sign in</Button>
-                                                <div className="custom-control custom-checkbox d-inline-block">
+                                            <div className="sign-info justify-content-center">
+                                                <Button className="btn btn-hover btn-primary1 btn-group-lg" onClick={() => history.push("/")}>로그인</Button>
+                                                {/*<div className="custom-control custom-checkbox d-inline-block">
                                                     <input type="checkbox" className="custom-control-input" id="customCheck"/>
-                                                    <label className="custom-control-label" htmlFor="customCheck">Remember Me</label>
-                                                </div>                                
+                                                    <label className="custom-control-label" htmlFor="customCheck">아이디 저장</label>
+                                                </div>*/}
                                             </div>                                    
                                         </Form>
                                     </div>
                                 </div>
                                 <div className="mt-3">
-                                    <div className="d-flex justify-content-center links">
-                                        Don't have an account? 
-                                        <Link to="/extra-pages/sign-up" className="text-primary ml-2">Sign Up</Link>
-                                    </div>
-                                    <div className="d-flex justify-content-center links">
+                                    <div className="d-flex justify-content-around links">
                                         <Link to="/extra-pages/recover-pswd" className="f-link">
-                                            Forgot your password?
+                                            비밀번호 찾기
+                                        </Link>
+
+                                        <Link to="/extra-pages/recover-pswd" className="f-link">
+                                            아이디 찾기
+                                        </Link>
+
+                                        <Link to="/extra-pages/sign-up" className="f-link">
+                                            회원가입
                                         </Link>
                                     </div>
                                 </div>

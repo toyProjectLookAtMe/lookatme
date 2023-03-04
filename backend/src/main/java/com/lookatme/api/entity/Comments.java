@@ -52,8 +52,8 @@ public class Comments {
     Integer commentState;
 
     @ManyToOne
-    @JoinColumn(name = "user_index")
-    private User user;
+    @JoinColumn(name = "member_index")
+    private Member member;
 
     @ManyToOne
     @JoinColumn(name = "review_index")
