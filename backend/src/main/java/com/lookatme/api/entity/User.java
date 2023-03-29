@@ -3,6 +3,7 @@ package com.lookatme.api.entity;
 
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,6 +16,7 @@ import java.util.Date;
 @Data
 @Table
 @Entity
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -23,12 +25,12 @@ public class User {
     @Comment("회원 PK")
     Integer userIndex;
 
-    @Column(length = 100)
+    @Column(unique = true, length = 100)
     @NotNull
     @Comment("회원 이메일")
     String userEmail;
 
-    @Column // 암호화 예정 default varchar(255)
+    @Column(unique = true) // 암호화 예정 default varchar(255)
     @NotNull
     @Comment("회원 비밀번호")
     String userPassword;
@@ -66,5 +68,8 @@ public class User {
     @Comment("회원 토큰")
     String userToken;
 
-
+    @Column
+    @Comment("회원 권한")
+    @Enumerated(EnumType.STRING)
+    Authority authority;
 }

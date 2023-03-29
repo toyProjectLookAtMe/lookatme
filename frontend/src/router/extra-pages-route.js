@@ -5,6 +5,7 @@ import Login from '../views/backend/pages/auth/login'
 import Video from '../views/backend/pages/video'
 import RecoverPswd from '../views/backend/pages/auth/recover-pswd'
 
+
 const ExtraPages = () => {
     return (
         <Switch>

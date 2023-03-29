@@ -1,6 +1,7 @@
 import React,{useState, useEffect}  from 'react'
 import { Container, Button, Row, Col, Form } from 'react-bootstrap'
-import { Link,useHistory } from 'react-router-dom'
+// import { Link,useHistory } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 // rtl 
@@ -26,19 +27,18 @@ const mapDispatchToProps = dispatch => ({
 })
 const SignUp = (props) => {
 
-    let history = useHistory()
+    // let history = useHistory()
     const [show, setShow] = useState(false);
 
     useEffect(() => {
-const rtlMode = sessionStorage.getItem('rtl-mode');
-    if(rtlMode===null){
-        props.rtlModeAction(props.rtlMode)
-    }
-    else{
-        props.rtlModeAction(rtlMode);
-    }
-        })
-
+        const rtlMode = sessionStorage.getItem('rtl-mode');
+        if(rtlMode===null){
+            props.rtlModeAction(props.rtlMode)
+        }
+        else{
+            props.rtlModeAction(rtlMode);
+        }
+    })
 
     return (
         <>
@@ -62,58 +62,59 @@ const rtlMode = sessionStorage.getItem('rtl-mode');
                             <div className="sign-user_card ">                    
                                 <div className="sign-in-page-data">
                                     <div className="sign-in-from w-100 m-auto">
-                                        <Form>
+                                        <Form method="POST" action="/api/user/joinUser"> {/*이 아이는 form으로 위장한 form태그를 컴포넌트화(내부 인터페이스를 참고하자) 한것이다.;;*/}
                                             <Row>
                                                 <Col md="6">
                                                     <Form.Group>
                                                         <Form.Label>Username</Form.Label>
-                                                        <Form.Control type="text" className="form-control mb-0" id="exampleInputEmail2" placeholder="Enter Full Name" autoComplete="off" required/>
+                                                        <Form.Control type="text" name="userNickname" className="form-control mb-0" id="username" placeholder="Enter Full Name" autoComplete="off" required/>
                                                     </Form.Group>
                                                 </Col>
                                                 <Col md="6">
                                                     <Form.Group>  
                                                         <Form.Label>E-mail</Form.Label>                               
-                                                        <Form.Control type="email" className="mb-0" id="exampleInputEmail3" placeholder="Enter email" autoComplete="off" required/>
+                                                        <Form.Control type="email" name="userEmail" className="mb-0" id="email" placeholder="Enter email" autoComplete="off" required/>
                                                     </Form.Group>
                                                 </Col>
-                                                <Col md="6">
-                                                    <Form.Group>
-                                                        <Form.Label>First Name</Form.Label>
-                                                        <Form.Control type="text" className="mb-0" id="exampleInputEmail2" placeholder="First Name" autoComplete="off" required/>
-                                                    </Form.Group>
-                                                </Col>
-                                                <Col md="6">
-                                                    <Form.Group>  
-                                                        <Form.Label>Last Name</Form.Label>                               
-                                                        <Form.Control type="email" className="mb-0" id="exampleInputEmail3" placeholder="Last Name" autoComplete="off" required/>
-                                                    </Form.Group>
-                                                </Col>
+                                                {/*<Col md="6">*/}
+                                                {/*    <Form.Group>*/}
+                                                {/*        <Form.Label>First Name</Form.Label>*/}
+                                                {/*        <Form.Control type="text" name="firstName" className="mb-0" id="firstName" placeholder="First Name" autoComplete="off" required/>*/}
+                                                {/*    </Form.Group>*/}
+                                                {/*</Col>*/}
+                                                {/*<Col md="6">*/}
+                                                {/*    <Form.Group>  */}
+                                                {/*        <Form.Label>Last Name</Form.Label>                               */}
+                                                {/*        <Form.Control type="email" name="lastName" className="mb-0" id="lastName" placeholder="Last Name" autoComplete="off" required/>*/}
+                                                {/*    </Form.Group>*/}
+                                                {/*</Col>*/}
                                                 <Col md="6">
                                                     <Form.Group>   
                                                         <Form.Label>Password</Form.Label>                              
-                                                        <Form.Control type="password" className="mb-0" id="exampleInputPassword2" placeholder="Password" required/>
+                                                        <Form.Control type="password" name="userPassword" className="mb-0" id="password" placeholder="Password" required/>
                                                     </Form.Group>
                                                 </Col>
                                                 <Col md="6">
                                                     <Form.Group> 
                                                         <Form.Label>Repeat Password</Form.Label>                                
-                                                        <Form.Control type="password" className="mb-0" id="exampleInputPassword2" placeholder="Password" required/>
+                                                        <Form.Control type="password" className="mb-0" id="passwordCheck" placeholder="Password" required/>
                                                     </Form.Group>
                                                 </Col>
                                             </Row>
                                             <div className="custom-control custom-radio mt-2">
-                                                <input type="radio" id="customRadio1" name="customRadio" className="custom-control-input"/>
+                                                <input type="radio" id="customRadio1" name="customRadio1" className="custom-control-input"/>
                                                 <label className="custom-control-label" htmlFor="customRadio1">Premium-$39 / 3 Months with a 5 day free trial</label>
                                             </div>
                                             <div className="custom-control custom-radio mt-2">
-                                                <input type="radio" id="customRadio2" name="customRadio" className="custom-control-input"/>
+                                                <input type="radio" id="customRadio2" name="customRadio2" className="custom-control-input"/>
                                                 <label className="custom-control-label" htmlFor="customRadio2"> Basic- $19 / 1 Month</label>
                                             </div>
                                             <div className="custom-control custom-radio mt-2">
-                                                <input type="radio" id="customRadio3" name="customRadio" className="custom-control-input"/>
+                                                <input type="radio" id="customRadio3" name="customRadio3" className="custom-control-input"/>
                                                 <label className="custom-control-label" htmlFor="customRadio3">Free-Free</label>
                                             </div>
-                                            <Button onClick={() => history.push("/")} className="btn btn-hover btn-primary1 my-2">Sign Up</Button>                              
+                                            {/*<Button onClick={() => history.push('/user/joinUser')} className="btn btn-hover btn-primary1 my-2">Sign Up</Button>*/}
+                                            <Button type="submit" className="btn btn-hover btn-primary1 my-2">Sign Up</Button>
                                         </Form>
                                     </div>
                                 </div>    

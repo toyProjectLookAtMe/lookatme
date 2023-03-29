@@ -1,16 +1,24 @@
 package com.lookatme.api.jpatest.controller;
 
+import com.lookatme.api.entity.Authority;
+import com.lookatme.api.entity.User;
 import com.lookatme.api.jpatest.entity.JpaEntity;
 import com.lookatme.api.jpatest.repository.JpaTestRepositroy;
+import com.lookatme.api.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class JpaController {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
